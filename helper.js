@@ -1,5 +1,5 @@
 let helper = (function() {
-    'Use strict'
+    'use strict'
 
     // Creates an object where public methods will live
     let methods = {};
