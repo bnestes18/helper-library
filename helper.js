@@ -26,22 +26,22 @@ let helper = (function() {
         return this.createArray(document.querySelectorAll(selector));
     }
     /*
-    Selects an element in the DOM and adds a class to the element
+    Selects an element in the DOM and adds a class to all elements
     */
-    methods.addClass = function (selector, className) {
-        let element = this.getFirstMatchingElem(selector);
-        return element.classList.add(className);
+    methods.addClass = function (elems, className) {
+        elems.forEach(elem => {
+            return elem.classList.add(className);
+        });
     }
     /*
-    Selects an element in the DOM and removes a class from the element
+    Selects an element in the DOM and removes a class from all elements
     */
-    methods.removeClass = function (selector, className) {
-        let element = this.getFirstMatchingElem(selector);
-        return element.classList.remove(className);
+    methods.removeClass = function (elems, className) {
+        elems.forEach(elem => {
+            return elem.classList.remove(className);
+        });
     }
 
     return methods;
 
 })()
-
-console.log(helper.getAllMatchingElems('button'))
