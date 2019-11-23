@@ -9,8 +9,8 @@ let helper = (function() {
     /*
     Selects multiple elements as a NodeList and converts the NodeList into an array
     */
-    methods.createArray = function(selector) {
-        return Array.prototype.slice.call(this.getAllMatchingElems(selector));
+    methods.createArray = function(list) {
+        return Array.prototype.slice.call(list);
     }
     /*
     Selects the first matching element in the DOM
@@ -20,10 +20,10 @@ let helper = (function() {
     }
     /*
     Selects multiple matching elements in the DOM and 
-    creates a NodeList 
+    creates an array
     */
     methods.getAllMatchingElems = function(selector) {
-        return document.querySelectorAll(selector);
+        return this.createArray(document.querySelectorAll(selector));
     }
     /*
     Selects an element in the DOM and adds a class to the element
@@ -44,4 +44,4 @@ let helper = (function() {
 
 })()
 
-console.log(helper.removeClass('button', 'btn-purple'))
+console.log(helper.getAllMatchingElems('button'))
