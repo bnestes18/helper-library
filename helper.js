@@ -1,5 +1,5 @@
 let helper = (function() {
-
+    'Use strict'
 
     // Creates an object where public methods will live
     let methods = {};
@@ -7,10 +7,10 @@ let helper = (function() {
 
     // FUNCTIONS
     /*
-    Selects multiple elements and creates an array-like object (NodeList)
+    Selects multiple elements as a NodeList and converts the NodeList into an array
     */
-    methods.createNodeList = function(selector) {
-        return document.querySelectorAll(selector);
+    methods.createArray = function(selector) {
+        return Array.prototype.slice.call(this.getAllMatchingElems(selector));
     }
     /*
     Selects the first matching element in the DOM
@@ -20,10 +20,10 @@ let helper = (function() {
     }
     /*
     Selects multiple matching elements in the DOM and 
-    creates an actual array
+    creates a NodeList 
     */
-    methods.getAllMatchingElems = function() {
-        return Array.prototype.slice.call(this.createNodeList);
+    methods.getAllMatchingElems = function(selector) {
+        return document.querySelectorAll(selector);
     }
     /*
     Selects an element in the DOM and adds a class to the element
