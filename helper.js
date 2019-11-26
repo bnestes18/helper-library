@@ -9,10 +9,20 @@ let $ = (function() {
 
     // FUNCTIONS
     /*
-    Converts a NodeList into an array
+    Checks if elements (list of nodes) exist
+    */
+    let elemsExist = function (nodes) {
+        if (!nodes || nodes.length < 1) return null;
+        return Array.prototype.slice.call(nodes);
+    }
+
+    // CONSTRUCTOR FUNCTIONS
+    /*
+    If elements exist, this function
+    converts a NodeList into an array
     */
     Constructor.prototype.getItems = function() {
-        return Array.prototype.slice.call(this.elems);
+        return elemsExist(this.elems)
     }
     /*
     Selects the first matching element in the DOM
