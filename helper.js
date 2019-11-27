@@ -42,18 +42,21 @@ let $ = (function() {
     */
     Constructor.prototype.addClass = function (className) {
         let elems = this.getItems()
-        elems.forEach(elem => {
-            return elem.classList.add(className);
+        elems.forEach(function (elem) {
+            elem.classList.add(className);
         });
+        console.log(this);
     }
     // /*
     // Selects an element in the DOM and removes a class from all elements
     // */
     Constructor.prototype.removeClass = function (className) {
         let elems = this.getItems()
-        elems.forEach(elem => {
-            return elem.classList.remove(className);
+        elems.forEach(function (elem) {
+            elem.classList.remove(className);
+            
         });
+        return this;
     }
 
     return Constructor;
@@ -61,22 +64,20 @@ let $ = (function() {
 })()
 
 // Create new instances of buttons and list items 
-let btns = new $('button');
-let listItems = new $('li');
+let btns = new $('button').addClass('btn-purple');
+// let listItems = new $('li');
 
-// Accessing public helper methods
-let firstBtn = btns.getFirstMatchingElem()
-let lastBtn = btns.getLastMatchingElem()
-let purpleBtns = btns.addClass('btn-purple');
-let blueBtns = btns.removeClass('btn-purple');
-
-
-// Show all selected button elements, first button element and last button element in the console
-console.log('buttons', btns.getItems())
-console.log('firstBtn', firstBtn);
-console.log('lastBtn', lastBtn);
-
-// Show selected unordered list
-console.log('listItems', listItems.getItems())
+// // Accessing public helper methods
+// let firstBtn = btns.getFirstMatchingElem()
+// let lastBtn = btns.getLastMatchingElem()
+// let purpleBtns = btns.addClass('btn-purple');
+// let blueBtns = btns.removeClass('btn-purple');
 
 
+// // Show all selected button elements, first button element and last button element in the console
+// console.log('buttons', btns.getItems())
+// console.log('firstBtn', firstBtn);
+// console.log('lastBtn', lastBtn);
+
+// // Show selected unordered list
+// console.log('listItems', listItems.getItems())
